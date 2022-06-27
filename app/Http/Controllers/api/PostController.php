@@ -5,13 +5,13 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Posts;
+use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Posts::latest()->get();
+        $data = Post::paginate();
         return response([
             'success' => true,
             'message' => 'List All Article',
@@ -44,7 +44,7 @@ class PostController extends Controller
             ], 401);
         } else {
 
-            $data = Posts::create([
+            $data = Post::create([
                 'title'     => $request->input('title'),
                 'content'   => $request->input('content'),
                 'image'   => $request->input('image'),
@@ -68,7 +68,7 @@ class PostController extends Controller
 
     public function show(Request $request, $id)
     {
-        $data = Posts::whereId($id)->first();
+        $data = Post::whereId($id)->first();
 
 
         if ($data) {
@@ -111,7 +111,7 @@ class PostController extends Controller
             ], 401);
         } else {
 
-            $data = Posts::whereId($id)->update([
+            $data = Post::whereId($id)->update([
                 'title'     => $request->input('title'),
                 'content'   => $request->input('content'),
                 'image'   => $request->input('image'),
@@ -134,7 +134,7 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $data = Posts::findOrFail($id)->delete();
+        $data = Post::findOrFail($id)->delete();
 
         if ($data) {
             return response()->json([
