@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('/login', function () {
+    return ['form login'];
+})->name('login');

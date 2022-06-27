@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\api\BookController;
+use App\Http\Controllers\api\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return $request->user()->id;
 });
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -29,3 +31,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:api');
+
+Route::middleware('auth:api')->prefix('/v1')->group(function () {
+    Route::resource('/article', PostController::class)->only([
+        'index', 'store', 'show', 'update', 'destroy'
+    ]);
+});
