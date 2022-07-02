@@ -14,14 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/user', function (Request $request) {
-    return $request->user();
 })->middleware('auth:api');
 
-Route::get('/login', function () {
-    return ['form login'];
-})->name('login');
+Route::get('/', function (Request $request) {
+    $data = [
+        "name" => "mimin",
+        "sesi" => $request->expectsJson()
+    ];
+
+    return view('index');
+});
+Route::view('/login', 'login')->name('login');

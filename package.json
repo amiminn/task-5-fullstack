@@ -1,7 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "start": "php artisan migrate:fresh && php artisan passport:install && php artisan db:seed && php artisan serve",
+        "start": "php artisan serve",
+        "setup": "php artisan migrate:fresh && php artisan passport:install && php artisan db:seed",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
