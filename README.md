@@ -4,14 +4,14 @@
 
 secara otomatis bisa anda jalankan commandd dibawah ini:
 
-npm run setup
-npm start
+<p>npm run setup</p>
+<p>npm start</p>
 
 atau secara manual
 
-php artisan migrate:fresh
-php artisan passport:install
-php artisan serve
+<p>php artisan migrate:fresh</p>
+<p>php artisan passport:install</p>
+<p>php artisan serve</p>
 
 # Hasil Test
 
@@ -21,11 +21,11 @@ php artisan serve
 # Test Api Auth
 
 -   Register
-    Respon ketika telah melakukan registrasi
+    <p>Respon ketika telah melakukan registrasi</p>
     <img src="https://i.ibb.co/7RZt90P/2-register.png" alt="2-register" border="0">
 
 -   Login
-    Respon ketika telah melakukan registrasi
+    <p>Respon ketika telah melakukan registrasi</p>
     <img src="https://i.ibb.co/d6kYZPK/3-login.png" alt="3-login" border="0">
 
 # Test Rest Api Artikel
