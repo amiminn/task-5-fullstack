@@ -25,7 +25,7 @@ atau secara manual
     <img src="https://i.ibb.co/7RZt90P/2-register.png" alt="2-register" border="0">
 
 -   Login
-    <p>Respon ketika telah melakukan registrasi</p>
+    <p>Respon ketika telah melakukan login</p>
     <img src="https://i.ibb.co/d6kYZPK/3-login.png" alt="3-login" border="0">
 
 # Test Rest Api Artikel
